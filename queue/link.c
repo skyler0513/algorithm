@@ -51,9 +51,10 @@ static int deQueue(PLinkQueen p)
         exit(0);
     }
 
-    int v = p->out->data;
-
-    p->out = p->out->next;
+    PNode node = p->out;
+    int v = node->data;
+    p->out = node->next;
+    free(node);
 
     return v;
 }
